@@ -1,8 +1,8 @@
 # ktwp-wp-plugin-webmention-useragent-injector-for-wordfence
 
-**Use of this plugin is entirely at your own risk.** This plugin modifies your apache .htaccess file. This plugin can destroy your site if something goes wrong, and is not guaranteed to work properly. Make sure you have adequate backups to fully restore your site to working order. Plugin's author is not liable for any consequences resulting from your choice to install or use this plugin. This plugin is provided as-is. 
+**Use of this plugin is entirely at your own risk.** This plugin modifies your apache .htaccess file. This plugin is not guaranteed to work properly, and can **destroy your website** if something goes wrong. If you cannot review the code yourself to ensure it works as you need it to, you should not use it. Make sure you have adequate backups to fully restore your site to working order. Plugin's author is not liable for any consequences resulting from your choice to install or use this plugin. This plugin is provided as-is. 
 
-This is a WordPress plugin to modify your .htaccess file inject a useragent into incoming webmention requests, so as not to trip WordFence's IP block against POST requests without a useragent or referrer.
+This is a WordPress plugin to modify your .htaccess file inject a User Agent header into incoming webmention requests that are lacking one, so as not to trip WordFence's IP optional block against POST requests without a useragent or referrer, if the user has chosen to enable that block.
 
 This plugin requires you to hardcode your webmention endpoint into the plugin before activation. In the future, an admin settings screen might be added, but probably not. Owing to the security risk, better to have it hard-coded in the plugin. 
 
