@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Kupietools Webmention UserAgent Injector For WordFence
- * Plugin URI: https://michaelkupietz.com/plugins/ktwp-webmention-useragent-infjector-for-wordfence
- * Description: Prevents WordPress playlist shortcode from repeating when it reaches the end
+ * Plugin URI: https://michaelkupietz.com/plugins/ktwp-webmention-useragent-injector-for-wordfence
+ * Description: Creates Apache .htaccess rule to inject a user agent header into incoming webmentions that are missing one, so they don't get blocked as spam by WordFence's "Block IPs who send POST requests with blank User-Agent and Referer" firewall setting.
  * Version: 1.0.0
  * Requires at least: 5.0
  * Requires PHP:      7.4
@@ -22,11 +22,18 @@ defined( 'ABSPATH' ) || exit;
  * Request path of the webmention endpoint, relative to the site root.
  *
  * The value is treated as the start of a regex, so '/webmention' will
- * also match '/webmention/' and '/webmention?target=…'.
+ * also match '/webmention/' and '/webmention?target=…'. For security reasons,
+ * you should therefore define the endpoint using the full path.
  *
  * Examples:
  *   '/webmention'
  *   '/wp-json/webmention/1.0/endpoint'
+ * 
+ * These will both work, but the second is preferable, as you really want 
+ * WordFence to continue to catch anything that isn't specifically sent to the 
+ * correct endpoint. The first will also cause WordFence not to block POSTs 
+ * that are sent to '/webmention/bogus-test-endpoint/sent-by-a-probing-spammer".
+ * 
  */
 define( 'WMUAI_ENDPOINT', '/wp-json/webmention/1.0/endpoint' );
 
