@@ -31,8 +31,8 @@ defined( 'ABSPATH' ) || exit;
  * 
  * These will both work, but the second is preferable, as you really want 
  * WordFence to continue to catch anything that isn't specifically sent to the 
- * correct endpoint. The first will also cause WordFence not to block POSTs 
- * that are sent to '/webmention/bogus-test-endpoint/sent-by-a-probing-spammer".
+ * correct endpoint. The first will also cause WordFence not to block IPs that
+ * send POSTs to '/webmention/bogus-test-endpoint/sent-by-a-probing-spammer".
  * 
  */
 define( 'WMUAI_ENDPOINT', '/wp-json/webmention/1.0/endpoint' );
